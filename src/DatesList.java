@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Holidays {
+public class DatesList {
   private ArrayList<Holiday> dates = new ArrayList<>(Arrays.asList(
       new Holiday("01/01/2023", "Confraternização Mundial"),
       new Holiday("21/02/2023", "Carnaval"),
@@ -22,5 +22,19 @@ public class Holidays {
       Holiday date = this.dates.get(i);
       System.out.println(date.getDate() + " - " + date.getDescription());
     }
+  }
+
+  public void getHoliday(String date) {
+    int length = this.dates.size();
+
+    for (int i = 0; i < length; i++) {
+      Holiday verifyDate = this.dates.get(i);
+      if (verifyDate.getDate().equals(date)) {
+        System.out.println(verifyDate.getDate() + " - " + verifyDate.getDescription());
+        return;
+      }
+    }
+
+    System.out.println("Não foi encontrado feriado na data " + date);
   }
 }
